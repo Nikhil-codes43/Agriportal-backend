@@ -1,0 +1,4 @@
+FROM tomcat:10.1
+
+# WAR file ko Tomcat ke webapps folder me copy karega
+COPY yourproject.war /usr/local/tomcat/webapps/
