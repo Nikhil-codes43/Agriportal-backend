@@ -1,0 +1,14 @@
+com\agriportal\dao\User.class
+com\agriportal\servlet\LoginServlet.class
+com\agriportal\dao\JoinUsDao.class
+com\agriportal\servlet\joinUsServlet.class
+com\agriportal\servlet\RegisterServlet.class
+com\agriportal\dao\ContactDao.class
+com\agriportal\servlet\contactusServlet.class
+com\agriportal\dao\joinUsDaoImpl.class
+com\agriportal\util\DBUtil.class
+com\agriportal\dao\ContactDaoImpl.class
+com\agriportal\dao\joinUs.class
+com\agriportal\dao\UserDao.class
+com\agriportal\dao\UserDaoImpl.class
+com\agriportal\dao\Contact.class
