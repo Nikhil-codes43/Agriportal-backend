@@ -30,8 +30,7 @@ public class DBUtil {
         System.out.println("DB: " + db);
         System.out.println("USER: " + user);
         System.out.println("PASS: " + pass);
-        String url = "jdbc:mysql://" + host + ":" + port + "/" + db +
-"?useSSL=true&requireSSL=true&verifyServerCertificate=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+      String url = "jdbc:mysql://<host>:<port>/<db>?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
         return DriverManager.getConnection(url, user, pass);
     }
 }
