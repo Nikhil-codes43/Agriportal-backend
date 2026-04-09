@@ -9,7 +9,7 @@ import com.agriportal.dao.User;
 import com.agriportal.dao.UserDao;
 import com.agriportal.dao.UserDaoImpl;
 
-@WebServlet("/RegisterServlet")
+
 public class RegisterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final UserDao userDao = new UserDaoImpl();
