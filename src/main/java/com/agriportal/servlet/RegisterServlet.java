@@ -2,9 +2,7 @@ package com.agriportal.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 import java.io.IOException;
 
 import com.agriportal.dao.User;
@@ -13,26 +11,40 @@ import com.agriportal.dao.UserDaoImpl;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private static final UserDao userDao = new UserDaoImpl();
+    private static final long serialVersionUID = 1L;
+    private static final UserDao userDao = new UserDaoImpl();
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // ✅ POST request handle (Signup form)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		System.out.println("🔥 Servlet hit hua");  // DEBUG
+        System.out.println("🔥 Servlet hit hua");
 
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String email = request.getParameter("email");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
 
-		User user = new User();
-		user.setUsername(username);
-		user.setPassword(password);
-		user.setEmail(email);
+        System.out.println(username + " | " + email); // debug
 
-		if(userDao.addUser(user)) {
-			response.sendRedirect("login.jsp?registration=success");
-		}else {
-			response.sendRedirect("signup.jsp?error=1");
-		}
-	}
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+
+        if (userDao.addUser(user)) {
+            response.sendRedirect("login.jsp?registration=success");
+        } else {
+            response.sendRedirect("signup.jsp?error=1");
+        }
+    }
+
+    // ✅ IMPORTANT: GET request handle (405 fix)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        System.out.println("⚠️ GET call aayi thi");
+
+        // direct signup page pe bhej do
+        response.sendRedirect("signup.jsp");
+    }
 }
