@@ -42,7 +42,7 @@
 						</div>
 					</a>
 				</div>
-				<form action="<%=request.getContextPath()%>/RegisterServlet" method="post">
+				<form action="RegisterServlet" method="post">
 					<div class="">
 						<p class="text-head">Username</p>
 						<input type="text" id="username" name="username" class="input" />
